@@ -35,3 +35,7 @@ Graph.prototype.setEdgeValue = function(node1, node2, val) {
 
 };
 */
+
+var Vertex = function(val) {
+  this.val = val;
+};
