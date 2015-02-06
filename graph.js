@@ -2,36 +2,36 @@ var Graph = function() {
 
 };
 
-Graph.prototype.adjacent = function(node1, node2) {
+Graph.prototype.adjacent = function(vert1, vert2) {
 
 };
 
-Graph.prototype.neighbors = function(node) {
+Graph.prototype.neighbors = function(vert) {
 
 };
 
-Graph.prototype.add = function(node1, node2) {
+Graph.prototype.add = function(vert1, vert2) {
   
 };
 
-Graph.prototype.delete = function(node1, node2) {
+Graph.prototype.delete = function(vert1, vert2) {
 
 };
 
-Graph.prototype.getNodeValue = function(node) {
+Graph.prototype.getNodeValue = function(vert) {
 
 };
 
-Graph.prototype.setNodeValue = function(node, val) {
+Graph.prototype.setNodeValue = function(vert, val) {
 
 };
 
 /*
-Graph.prototype.getEdgeValue = function(node1, node2) {
+Graph.prototype.getEdgeValue = function(vert1, vert2) {
 
 };
 
-Graph.prototype.setEdgeValue = function(node1, node2, val) {
+Graph.prototype.setEdgeValue = function(vert1, vert2, val) {
 
 };
 */
