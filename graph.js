@@ -39,3 +39,21 @@ Graph.prototype.setEdgeValue = function(vert1, vert2, val) {
 var Vertex = function(val) {
   this.val = val;
 };
+
+var Node = function(val) {
+  this.val = val;
+  this.next = null;
+};
+
+var LinkedList = function() {
+  this.head = null;
+  this.tail = null;
+};
+
+LinkedList.prototype.add = function(node) {
+
+};
+
+LinkedList.prototype.remove = function(node) {
+
+};
