@@ -18,11 +18,11 @@ Graph.prototype.delete = function(vert1, vert2) {
 
 };
 
-Graph.prototype.getNodeValue = function(vert) {
+Graph.prototype.getVertValue = function(vert) {
 
 };
 
-Graph.prototype.setNodeValue = function(vert, val) {
+Graph.prototype.setVertValue = function(vert, val) {
 
 };
 
