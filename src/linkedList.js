@@ -1,10 +1,13 @@
+var Node       = require('./node');
+
 var LinkedList = module.exports = function() {
   this.head = null;
   this.tail = null;
 };
 
 // adds to tail
-LinkedList.prototype.add = function(node) {
+LinkedList.prototype.add = function(val) {
+  var node = new Node(val);
   if (this.head === null) {
     this.head = node;
     this.tail = node;
@@ -14,7 +17,8 @@ LinkedList.prototype.add = function(node) {
   }
 };
 
-LinkedList.prototype.remove = function(node) {
+LinkedList.prototype.remove = function(val) {
+  var node = new Node(val);
   var curr = this.head;
   // for single length linked list
   if (curr !== null && curr.next === null) {
@@ -24,13 +28,13 @@ LinkedList.prototype.remove = function(node) {
   }
 
   // head is node to be removed
-  if (curr.val === node.val) {
+  if (curr.val === val) {
     this.head = this.head.next;
     return;
   }
 
   while (curr.next !== null) {
-    if (curr.next.val === node.val) {
+    if (curr.next.val === val) {
       curr.next = curr.next.next;
       if (curr.next === null) {
         this.tail = this.head;
