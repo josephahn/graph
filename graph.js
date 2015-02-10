@@ -11,20 +11,23 @@ Graph.prototype.neighbors = function(vert) {
 };
 
 Graph.prototype.add = function(vert1, vert2) {
-  // TODO: don't add if list already contains value
   var node1 = new Node(vert1.val);
   var node2 = new Node(vert2.val);
   if (!this.adjList.hasOwnProperty(vert1.val)) {
     var linkedList = new LinkedList();
     this.adjList[vert1.val] = linkedList;
   }
-  this.adjList[vert1.val].add(node2);
+  if (!this.adjList[vert1.val].contains(node2.val)) {
+    this.adjList[vert1.val].add(node2);
+  }
 
   if (!this.adjList.hasOwnProperty(vert2.val)) {
     var linkedList = new LinkedList();
     this.adjList[vert2.val] = linkedList;
   }
-  this.adjList[vert2.val].add(node1);
+  if (!this.adjList[vert2.val].contains(node1.val)) {
+    this.adjList[vert2.val].add(node1);
+  }
 };
 
 Graph.prototype.delete = function(vert1, vert2) {
