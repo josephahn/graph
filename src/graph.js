@@ -1,4 +1,3 @@
-var Node       = require('./node');
 var LinkedList = require('./linkedList');
 
 var Graph = module.exports = function() {
@@ -14,22 +13,21 @@ Graph.prototype.neighbors = function(vert) {
 };
 
 Graph.prototype.add = function(vert1, vert2) {
-  var node1 = new Node(vert1.val);
-  var node2 = new Node(vert2.val);
   if (!this.adjList.hasOwnProperty(vert1.val)) {
     var linkedList = new LinkedList();
+    linkedList.add(vert1.val);
     this.adjList[vert1.val] = linkedList;
   }
-  if (!this.adjList[vert1.val].contains(node2.val)) {
-    this.adjList[vert1.val].add(node2);
+  if (!this.adjList[vert1.val].contains(vert2.val)) {
+    this.adjList[vert1.val].add(vert2.val);
   }
-
   if (!this.adjList.hasOwnProperty(vert2.val)) {
     var linkedList = new LinkedList();
+    linkedList.add(vert2.val);
     this.adjList[vert2.val] = linkedList;
   }
-  if (!this.adjList[vert2.val].contains(node1.val)) {
-    this.adjList[vert2.val].add(node1);
+  if (!this.adjList[vert2.val].contains(vert1.val)) {
+    this.adjList[vert2.val].add(vert1.val);
   }
 };
 
@@ -47,7 +45,7 @@ Graph.prototype.setVertValue = function(vert, val) {
 
 Graph.prototype.print = function() {
   for (var headVal in this.adjList) {
-    var result = headVal + ' -> ';
+    var result = '';
     var node = this.adjList[headVal].head;
     while (node !== null && node.hasOwnProperty('next')) {
       result += node.val + ' -> ';

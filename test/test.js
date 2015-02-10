@@ -22,15 +22,14 @@ describe('Graph', function() {
     var v2 = new Vertex('b');
     it('should add edge between two verticies', function() {
       g.add(v1, v2);
-      assert.equal(g.adjList.a.head.val, 'b');
-      assert.equal(g.adjList.b.head.val, 'a');
+      assert.equal(g.adjList.a.head.next.val, 'b');
+      assert.equal(g.adjList.b.head.next.val, 'a');
     })
     it('should only add unique edges', function() {
       g.add(v1, v2);
       g.add(v2, v1);
-      // + 1 for head node
-      assert.equal(g.adjList.a.length() + 1, 2);
-      assert.equal(g.adjList.b.length() + 1, 2);
+      assert.equal(g.adjList.a.length(), 2);
+      assert.equal(g.adjList.b.length(), 2);
     })
   })
 });
