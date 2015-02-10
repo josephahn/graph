@@ -1,4 +1,4 @@
-var Graph = function() {
+var Graph = module.exports = function() {
   this.adjList = {};
 };
 
