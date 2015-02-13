@@ -44,15 +44,8 @@ Graph.prototype.setVertValue = function(vert, val) {
 };
 
 Graph.prototype.print = function() {
-  for (var headVal in this.adjList) {
-    var result = '';
-    var node = this.adjList[headVal].head;
-    while (node !== null && node.hasOwnProperty('next')) {
-      result += node.val + ' -> ';
-      node = node.next;
-    }
-    result += 'NULL';
-    console.log(result);
+  for (var vert in this.adjList) {
+    this.adjList[vert].print();
   }
 };
 

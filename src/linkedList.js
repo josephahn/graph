@@ -77,3 +77,14 @@ LinkedList.prototype.contains = function(val) {
   }
   return false;
 };
+
+LinkedList.prototype.print = function() {
+  var result = '';
+  var node = this.head;
+  while (node !== null && node.hasOwnProperty('next')) {
+    result += node.val + ' -> ';
+    node = node.next;
+  }
+  result += 'NULL';
+  console.log(result);
+};
