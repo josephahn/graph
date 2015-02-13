@@ -1,4 +1,4 @@
-var Node       = require('./node');
+var Node = require('./node');
 
 var LinkedList = module.exports = function() {
   this.head = null;
