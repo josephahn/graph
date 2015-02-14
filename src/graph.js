@@ -32,7 +32,8 @@ Graph.prototype.add = function(vert1, vert2) {
 };
 
 Graph.prototype.delete = function(vert1, vert2) {
-
+  this.adjList[vert1.val].remove(vert2.val);
+  this.adjList[vert2.val].remove(vert1.val);
 };
 
 Graph.prototype.getVertValue = function(vert) {

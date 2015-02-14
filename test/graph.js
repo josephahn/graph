@@ -32,4 +32,28 @@ describe('Graph', function() {
       assert.equal(graph.adjList.b.length(), 2);
     })
   })
+
+  describe('#delete', function() {
+    var v1 = new Vertex('a');
+    var v2 = new Vertex('b');
+    var v3 = new Vertex('c');
+    it('should remove edges correctly', function() {
+      graph.add(v1, v2);
+      assert.equal(graph.adjList.a.head.val, 'a');
+      assert.equal(graph.adjList.a.tail.val, 'b');
+      assert.equal(graph.adjList.b.head.val, 'b');
+      assert.equal(graph.adjList.b.tail.val, 'a');
+      graph.add(v1, v3);
+      assert.equal(graph.adjList.a.head.next.val, 'b');
+      assert.equal(graph.adjList.a.tail.val, 'c');
+      assert.equal(graph.adjList.c.head.val, 'c');
+      assert.equal(graph.adjList.c.tail.val, 'a');
+      graph.delete(v1, v2);
+      assert.equal(graph.adjList.a.head.next.val, 'c');
+      assert.equal(graph.adjList.b.next, null);
+      graph.delete(v1, v3);
+      assert.equal(graph.adjList.a.next, null);
+      assert.equal(graph.adjList.c.next, null);
+    });
+  })
 });

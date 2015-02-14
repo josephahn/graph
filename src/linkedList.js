@@ -18,7 +18,6 @@ LinkedList.prototype.add = function(val) {
 };
 
 LinkedList.prototype.remove = function(val) {
-  var node = new Node(val);
   var curr = this.head;
   // for single length linked list
   if (curr !== null && curr.next === null) {
