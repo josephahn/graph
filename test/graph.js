@@ -48,6 +48,20 @@ describe('Graph', function() {
       graph.delete('a', 'c');
       assert.equal(graph.adjList.a.next, null);
       assert.equal(graph.adjList.c.next, null);
-    });
+    })
+  })
+
+  describe('#adjacent', function() {
+    it('should return true if two vertices are adjacent', function() {
+      graph.add('a', 'b');
+      assert.equal(graph.adjacent('a', 'b'), true);
+      graph.add('a', 'c');
+      assert.equal(graph.adjacent('c', 'a'), true);
+    })
+    it('should return false if two vertices are not adjacent', function() {
+      graph.add('a', 'b');
+      graph.add('a', 'c');
+      assert.equal(graph.adjacent('b', 'c'), false);
+    })
   })
 });

@@ -5,7 +5,7 @@ var Graph = module.exports = function() {
 };
 
 Graph.prototype.adjacent = function(val1, val2) {
-
+  return this.adjList[val1].contains(val2);
 };
 
 Graph.prototype.neighbors = function(val) {
