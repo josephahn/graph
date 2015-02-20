@@ -8,6 +8,12 @@ npm install
 npm test
 ```
 
+To run tests without Istanbul code coverage:
+
+```bash
+mocha
+```
+
 ### Implementation details
 
 Representations:
