@@ -81,4 +81,17 @@ describe('LinkedList', function() {
       assert.equal(linkedList.contains('d'), false);
     })
   })
+
+  describe('#list', function() {
+    it('should return an empty array if there are no nodes', function() {
+      assert.deepEqual(linkedList.list(), []);
+    })
+    it('should return an array of all node values', function() {
+      linkedList.add('t');
+      linkedList.add('e');
+      linkedList.add('s');
+      linkedList.add('t');
+      assert.deepEqual(linkedList.list(), ['t','e','s','t']);
+    })
+  })
 });

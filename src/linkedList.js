@@ -87,3 +87,17 @@ LinkedList.prototype.print = function() {
   result += 'NULL';
   console.log(result);
 };
+
+LinkedList.prototype.list = function() {
+  var result = [];
+  if (this.length() === 0) {
+    return result;
+  } else {
+    var node = this.head;
+    while (node !== null && node.hasOwnProperty('next')) {
+      result.push(node.val);
+      node = node.next;
+    }
+    return result;
+  }
+};
