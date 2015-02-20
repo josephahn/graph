@@ -17,8 +17,8 @@ mocha
 ### Implementation details
 
 Representations:
-* adjacency list
-* adjacency matrix
+* adjacency list (on **master** branch)
+* adjacency matrix (on **adjacency_matrix** branch)
 
 ### Dependencies
 
