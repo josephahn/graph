@@ -60,6 +60,28 @@ Graph.prototype.print = function() {
   }
 };
 
+Graph.prototype.bfs = function(val) {
+  var result = [];
+  var q = [];
+  var discovered = {};
+  result.push(val);
+  q.push(val);
+  discovered[val] = true;
+
+  while (q.length > 0) {
+    var vert = q.shift();
+    this.adjList[vert].map(function(node) {
+      if (discovered[node.val] === undefined) {
+        result.push(node.val);
+        q.push(node.val);
+        discovered[node.val] = true;
+      }
+    })
+  }
+
+  return result;
+};
+
 /*
 Graph.prototype.getEdgeValue = function(val1, val2) {
 

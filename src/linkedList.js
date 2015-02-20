@@ -108,4 +108,4 @@ LinkedList.prototype.map = function(cb) {
     cb(node);
     node = node.next;
   }
-}
+};

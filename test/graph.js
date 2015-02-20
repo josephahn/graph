@@ -92,4 +92,27 @@ describe('Graph', function() {
       assert.deepEqual(graph.neighbors('c'), ['z']);
     })
   })
+
+  describe('#bfs', function() {
+    it('should return an array with the node values visited in breadth first order', function() {
+      graph.add('a', 'b');
+      assert.deepEqual(graph.bfs('b'), ['b','a']);
+      graph.add('a', 'c');
+      assert.deepEqual(graph.bfs('b'), ['b','a','c']);
+      graph.add('a', 'd');
+      assert.deepEqual(graph.bfs('b'), ['b','a','c','d']);
+      graph.add('a', 'f');
+      assert.deepEqual(graph.bfs('b'), ['b','a','c','d','f']);
+      graph.add('b', 'd');
+      assert.deepEqual(graph.bfs('b'), ['b','a','d','c','f']);
+      graph.add('b', 'f');
+      assert.deepEqual(graph.bfs('b'), ['b','a','d','f','c']);
+      graph.add('b', 'g');
+      assert.deepEqual(graph.bfs('b'), ['b','a','d','f','g','c']);
+      graph.add('d', 'e');
+      assert.deepEqual(graph.bfs('b'), ['b','a','d','f','g','c','e']);
+      graph.add('e', 'f');
+      assert.deepEqual(graph.bfs('b'), ['b','a','d','f','g','c','e']);
+    })
+  })
 });
