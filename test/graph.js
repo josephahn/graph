@@ -113,6 +113,32 @@ describe('Graph', function() {
       assert.deepEqual(graph.bfs('b'), ['b','a','d','f','g','c','e']);
       graph.add('e', 'f');
       assert.deepEqual(graph.bfs('b'), ['b','a','d','f','g','c','e']);
+      graph.add('f', 'g');
+    })
+  })
+
+  describe('#dfs', function() {
+    it('should return an array with the node values visited in depth first order', function() {
+      graph.add('a', 'b');
+      assert.deepEqual(graph.dfs('b'), ['b','a']);
+      graph.add('a', 'c');
+      assert.deepEqual(graph.dfs('b'), ['b','a','c']);
+      graph.add('a', 'd');
+      assert.deepEqual(graph.dfs('b'), ['b','a','c','d']);
+      graph.add('a', 'f');
+      assert.deepEqual(graph.dfs('b'), ['b','a','c','d','f']);
+      graph.add('b', 'd');
+      assert.deepEqual(graph.dfs('b'), ['b','a','c','d','f']);
+      graph.add('b', 'f');
+      assert.deepEqual(graph.dfs('b'), ['b','a','c','d','f']);
+      graph.add('b', 'g');
+      assert.deepEqual(graph.dfs('b'), ['b','a','c','d','f','g']);
+      graph.add('d', 'e');
+      assert.deepEqual(graph.dfs('b'), ['b','a','c','d','e','f','g']);
+      graph.add('e', 'f');
+      assert.deepEqual(graph.dfs('b'), ['b','a','c','d','e','f','g']);
+      graph.add('f', 'g');
+      assert.deepEqual(graph.dfs('b'), ['b','a','c','d','e','f','g']);
     })
   })
 });

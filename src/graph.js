@@ -82,6 +82,30 @@ Graph.prototype.bfs = function(val) {
   return result;
 };
 
+Graph.prototype.dfs = function(val) {
+  var result = [];
+  var s = [];
+  var discovered = {};
+  s.push(val);
+
+  // TODO: refactor
+  // extra array needed to implement left to right dfs
+  while (s.length > 0) {
+    var vert = s.shift();
+    if (discovered[vert] === undefined) {
+      discovered[vert] = true;
+      result.push(vert);
+      var arr = [];
+      this.adjList[vert].map(function(node) {
+        arr.push(node.val);
+      });
+      s = arr.concat(s);
+    }
+  }
+
+  return result;
+};
+
 /*
 Graph.prototype.getEdgeValue = function(val1, val2) {
 
