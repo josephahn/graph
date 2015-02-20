@@ -94,4 +94,16 @@ describe('LinkedList', function() {
       assert.deepEqual(linkedList.list(), ['t','e','s','t']);
     })
   })
+
+  describe('#map', function() {
+    it('should invoke the callback function on each node in list', function() {
+      linkedList.add(1);
+      linkedList.add(2);
+      linkedList.add(3);
+      linkedList.map(function(node) {
+        node.val++;
+      });
+      assert.deepEqual(linkedList.list(), [2,3,4]);
+    })
+  })
 });

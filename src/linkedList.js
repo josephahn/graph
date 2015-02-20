@@ -101,3 +101,11 @@ LinkedList.prototype.list = function() {
     return result;
   }
 };
+
+LinkedList.prototype.map = function(cb) {
+  var node = this.head;
+  while (node !== null && node.hasOwnProperty('next')) {
+    cb(node);
+    node = node.next;
+  }
+}
