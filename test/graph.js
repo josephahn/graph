@@ -64,4 +64,18 @@ describe('Graph', function() {
       assert.equal(graph.adjacent('b', 'c'), false);
     })
   })
+
+  describe('#neighbors', function() {
+    it('should return an empty array if a vertex is not part of the graph', function() {
+      assert.deepEqual(graph.neighbors('a'), []);
+    })
+    it('should return an array of all neighbors', function() {
+      graph.add('a', 'b');
+      graph.add('a', 'c');
+      assert.deepEqual(graph.neighbors('a'), ['b','c']);
+      graph.add('a', 'z');
+      graph.add('z', 'a');
+      assert.deepEqual(graph.neighbors('a'), ['b','c','z']);
+    })
+  })
 });

@@ -9,7 +9,11 @@ Graph.prototype.adjacent = function(val1, val2) {
 };
 
 Graph.prototype.neighbors = function(val) {
-
+  if (!this.adjList.hasOwnProperty(val)) {
+    return [];
+  } else {
+    return this.adjList[val].list().slice(1);
+  }
 };
 
 Graph.prototype.add = function(val1, val2) {
