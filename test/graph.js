@@ -78,4 +78,18 @@ describe('Graph', function() {
       assert.deepEqual(graph.neighbors('a'), ['b','c','z']);
     })
   })
+
+  describe('#setVertVal', function() {
+    it('should change vertex value', function() {
+      graph.add('a', 'b');
+      graph.add('a', 'c');
+      assert.equal(graph.adjList.hasOwnProperty('a'), true);
+      graph.setVertVal('a', 'z');
+      assert.equal(graph.adjList.hasOwnProperty('a'), false);
+      assert.equal(graph.adjList.hasOwnProperty('z'), true);
+      assert.deepEqual(graph.neighbors('z'), ['b','c']);
+      assert.deepEqual(graph.neighbors('b'), ['z']);
+      assert.deepEqual(graph.neighbors('c'), ['z']);
+    })
+  })
 });

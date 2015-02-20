@@ -40,8 +40,18 @@ Graph.prototype.delete = function(val1, val2) {
   this.adjList[val2].remove(val1);
 };
 
-Graph.prototype.setVertValue = function(oldVal, newVal) {
-
+Graph.prototype.setVertVal = function(oldVal, newVal) {
+  if (this.adjList.hasOwnProperty(oldVal)) {
+    for (var vert in this.adjList) {
+      this.adjList[vert].map(function(node) {
+        if (node.val === oldVal) {
+          node.val = newVal;
+        }
+      });
+    }
+    this.adjList[newVal] = this.adjList[oldVal];
+    delete this.adjList[oldVal];
+  }
 };
 
 Graph.prototype.print = function() {
