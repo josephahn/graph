@@ -4,43 +4,39 @@ var Graph = module.exports = function() {
   this.adjList = {};
 };
 
-Graph.prototype.adjacent = function(vert1, vert2) {
+Graph.prototype.adjacent = function(val1, val2) {
 
 };
 
-Graph.prototype.neighbors = function(vert) {
+Graph.prototype.neighbors = function(val) {
 
 };
 
-Graph.prototype.add = function(vert1, vert2) {
-  if (!this.adjList.hasOwnProperty(vert1.val)) {
+Graph.prototype.add = function(val1, val2) {
+  if (!this.adjList.hasOwnProperty(val1)) {
     var linkedList = new LinkedList();
-    linkedList.add(vert1.val);
-    this.adjList[vert1.val] = linkedList;
+    linkedList.add(val1);
+    this.adjList[val1] = linkedList;
   }
-  if (!this.adjList[vert1.val].contains(vert2.val)) {
-    this.adjList[vert1.val].add(vert2.val);
+  if (!this.adjList[val1].contains(val2)) {
+    this.adjList[val1].add(val2);
   }
-  if (!this.adjList.hasOwnProperty(vert2.val)) {
+  if (!this.adjList.hasOwnProperty(val2)) {
     var linkedList = new LinkedList();
-    linkedList.add(vert2.val);
-    this.adjList[vert2.val] = linkedList;
+    linkedList.add(val2);
+    this.adjList[val2] = linkedList;
   }
-  if (!this.adjList[vert2.val].contains(vert1.val)) {
-    this.adjList[vert2.val].add(vert1.val);
+  if (!this.adjList[val2].contains(val1)) {
+    this.adjList[val2].add(val1);
   }
 };
 
-Graph.prototype.delete = function(vert1, vert2) {
-  this.adjList[vert1.val].remove(vert2.val);
-  this.adjList[vert2.val].remove(vert1.val);
+Graph.prototype.delete = function(val1, val2) {
+  this.adjList[val1].remove(val2);
+  this.adjList[val2].remove(val1);
 };
 
-Graph.prototype.getVertValue = function(vert) {
-
-};
-
-Graph.prototype.setVertValue = function(vert, val) {
+Graph.prototype.setVertValue = function(oldVal, newVal) {
 
 };
 
@@ -51,11 +47,11 @@ Graph.prototype.print = function() {
 };
 
 /*
-Graph.prototype.getEdgeValue = function(vert1, vert2) {
+Graph.prototype.getEdgeValue = function(val1, val2) {
 
 };
 
-Graph.prototype.setEdgeValue = function(vert1, vert2, val) {
+Graph.prototype.setEdgeValue = function(val1, val2, edgeVal) {
 
 };
 */
