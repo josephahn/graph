@@ -95,6 +95,18 @@ describe('LinkedList', function() {
     })
   })
 
+  describe('#find', function() {
+    it('should find the node with the specified value and invoke the callback function', function() {
+      linkedList.add('a');
+      linkedList.add('b');
+      linkedList.add('c');
+      linkedList.find('b', function(node) {
+        node.val = 'B';
+      });
+      assert.equal(linkedList.head.next.val, 'B');
+    });
+  })
+
   describe('#map', function() {
     it('should invoke the callback function on each node in list', function() {
       linkedList.add(1);

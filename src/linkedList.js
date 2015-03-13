@@ -104,7 +104,18 @@ LinkedList.prototype.traverse = function(cb) {
     cb(node);
     node = node.next;
   }
-}
+};
+
+LinkedList.prototype.find = function(val, cb) {
+  var node = this.head;
+  while (node !== null && node.hasOwnProperty('next')) {
+    if (node.val === val) {
+      cb(node);
+      break;
+    }
+    node = node.next;
+  }
+};
 
 LinkedList.prototype.map = function(cb) {
   this.traverse(function(node) {
