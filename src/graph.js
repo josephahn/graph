@@ -106,12 +106,14 @@ Graph.prototype.dfs = function(val) {
   return result;
 };
 
-/*
 Graph.prototype.getEdgeValue = function(val1, val2) {
-
+  return this.adjList[val1].find(val2, function(node) {
+    return node.weight;
+  });
 };
 
 Graph.prototype.setEdgeValue = function(val1, val2, edgeVal) {
-
+  this.adjList[val1].find(val2, function(node) {
+    node.weight = edgeVal;
+  });
 };
-*/

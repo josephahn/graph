@@ -141,4 +141,21 @@ describe('Graph', function() {
       assert.deepEqual(graph.dfs('b'), ['b','a','c','d','e','f','g']);
     })
   })
+
+  describe('#setEdgeValue', function() {
+    it('should set edge weight', function() {
+      graph.add('a', 'b');
+      graph.setEdgeValue('a', 'b', 1);
+      assert.equal(graph.adjList.a.head.next.weight, 1);
+    })
+  })
+
+  describe('#getEdgeValue', function() {
+    it('should return edge weight', function() {
+      graph.add('a', 'b');
+      assert.equal(graph.adjList.a.head.weight, null);
+      graph.setEdgeValue('a', 'b', 1);
+      assert.equal(graph.getEdgeValue('a', 'b'), 1);
+    })
+  })
 });

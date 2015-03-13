@@ -110,8 +110,7 @@ LinkedList.prototype.find = function(val, cb) {
   var node = this.head;
   while (node !== null && node.hasOwnProperty('next')) {
     if (node.val === val) {
-      cb(node);
-      break;
+      return cb(node);
     }
     node = node.next;
   }
