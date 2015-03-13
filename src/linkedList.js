@@ -79,11 +79,9 @@ LinkedList.prototype.contains = function(val) {
 
 LinkedList.prototype.print = function() {
   var result = '';
-  var node = this.head;
-  while (node !== null && node.hasOwnProperty('next')) {
+  this.traverse(function(node) {
     result += node.val + ' -> ';
-    node = node.next;
-  }
+  });
   result += 'NULL';
   console.log(result);
 };
@@ -93,19 +91,23 @@ LinkedList.prototype.list = function() {
   if (this.length() === 0) {
     return result;
   } else {
-    var node = this.head;
-    while (node !== null && node.hasOwnProperty('next')) {
+    this.traverse(function(node) {
       result.push(node.val);
-      node = node.next;
-    }
+    });
     return result;
   }
 };
 
-LinkedList.prototype.map = function(cb) {
+LinkedList.prototype.traverse = function(cb) {
   var node = this.head;
   while (node !== null && node.hasOwnProperty('next')) {
     cb(node);
     node = node.next;
   }
+}
+
+LinkedList.prototype.map = function(cb) {
+  this.traverse(function(node) {
+    cb(node);
+  });
 };
